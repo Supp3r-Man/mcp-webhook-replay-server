@@ -15,7 +15,7 @@
 7. **Wrote the protocol layer:** initialize with version negotiation, `notifications/*` (never answered), ping, tools/list, tools/call; error codes -32700 (parse), -32600 (invalid request, including batches), -32601 (unknown method), -32602 (bad params or arguments), -32002 (not initialized); tool failures are results with `isError: true`, not protocol errors; a small schema validator for tool arguments.
 8. **Wrote 103 tests** in five files: signing and data (17), delivery (12), tools and audit (20), protocol conformance (48), real-subprocess end-to-end through `tests/mock_client.py` (6; a reader thread and a timeout so a hung server fails the test instead of hanging it). All pass.
 9. **Mutation-checked the tests:** 10 deliberate breaks, applied to a copy, one at a time. The script reports "pattern missed" if a break did not apply. All 10 were caught on the first run, and I printed which test caught each to make sure it was a meaningful failure and not a crash.
-10. **Wrote the README and this file**, then committed locally. (The push and the first CI run happen afterwards; the README says the CI had not run when it was written.)
+10. **Wrote the README and this file**, then committed locally. (The push and the first CI run came afterwards: CI passed on Python 3.11 and 3.13 on both accounts.)
 
 Problems and choices along the way:
 - Windows text-mode stdout would turn `\n` into `\r\n`, so `__main__` reconfigures stdio to UTF-8 with plain newlines.
